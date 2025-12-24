@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给姐姐的生日祝福 | 来自学网络安全的弟弟</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div id="loading">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>正在加载生日惊喜...</p>
+        </div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 开场动画 -->
+        <section id="opening" class="section opening-section">
+            <div class="opening-content">
+                <h1 class="title animate__animated animate__bounceIn">🎂 姐姐，生日快乐！ 🎂</h1>
+                <p class="subtitle animate__animated animate__fadeInUp">这是弟弟用代码为你编织的生日祝福</p>
+                
+                <!-- 倒计时盒子 -->
+                <div class="countdown-box">
+                    <h3><i class="fas fa-clock"></i> 距离生日祝福还有：</h3>
+                    <div id="countdown" class="countdown">
+                        <div><span id="seconds">3</span><small>秒</small></div>
+                    </div>
+                </div>
+                
+                <!-- === 简单音乐播放器 === -->
+                <div class="simple-player">
+                    <button onclick="playMusic()" class="play-btn">
+                        <i class="fas fa-play"></i> 播放生日歌
+                    </button>
+                    <button onclick="pauseMusic()" class="pause-btn">
+                        <i class="fas fa-pause"></i> 暂停
+                    </button>
+                    <audio id="myMusic" src="birthday-song.mp3" loop></audio>
+                    <p class="music-hint"><i class="fas fa-lightbulb"></i> 点击播放按钮开始生日音乐！</p>
+                </div>
+                <!-- === 播放器结束 === -->
+                
+                <div class="hint">
+                    <p><i class="fas fa-lightbulb"></i> 提示：向下滚动探索更多惊喜</p>
+                    <div class="scroll-down">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 主祝福区 -->
+        <section id="main-message" class="section message-section">
+            <div class="message-box">
+                <h2><i class="fas fa-heart"></i> 给最爱的姐姐</h2>
+                <div class="message-content">
+                    <p>亲爱的姐姐，</p>
+                    <p>今天是你19岁的生日，虽然我不能当面为你庆祝，</p>
+                    <p>但我用这个学期了解到的编程知识，亲手为你制作了这个网页。</p>
+                    <p>每一行代码都代表我的感谢和祝福！</p>
+                    
+                    <div class="special-message">
+                        <p><strong>姐姐，谢谢你：</strong></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 一直照顾我、支持我</li>
+                            <li><i class="fas fa-check-circle"></i> 在我迷茫时给我建议</li>
+                            <li><i class="fas fa-check-circle"></i> 对我给足了耐心，从不怪我</li>
+                            <li><i class="fas fa-check-circle"></i> 成为我最亲密的家人和朋友</li>
+                        </ul>
+                    </div>
+
+                    <div class="cyber-security">
+                        <h3><i class="fas fa-shield-alt"></i> 网络安全专业弟弟的特别祝福</h3>
+                        <p>作为网络空间安全专业的学生，我用专业知识为你加密了一份祝福：</p>
+                        <div class="encrypted-message">
+                            <p><code>01001000 01100001 01110000 01110000 01111001 00100000 01000010 01101001 01110010 01110100 01101000 01100100 01100001 01111001</code></p>
+                            <p class="hint-text">（这是我的专业展示：二进制编码的"Happy Birthday"）</p>
+                            
+                            <!-- 修复：只显示解密按钮，不自动解密 -->
+                            <button id="decrypt-btn" class="cyber-btn">
+                                <i class="fas fa-key"></i> 点击这里解密祝福
+                            </button>
+                            
+                            <div id="decrypted-message" class="hidden">
+                                <p class="result">🎉 解密成功！翻译结果：<span class="highlight"></span></p>
+                                <p class="hint-text">（你看，这就是网络安全中的编码转换！）</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 温馨回忆文字描述 - 修改为打字效果 -->
+                    <div class="memories">
+                        <h3><i class="fas fa-memory"></i> 我们的美好回忆</h3>
+                        <div class="memory-cards">
+                            <div class="memory-card">
+                                <i class="fas fa-laugh-beam"></i>
+                                <h4>一起欢笑的日子</h4>
+                                <div class="typing-text" id="memory1">
+                                    <!-- 内容将通过JS动态生成 -->
+                                </div>
+                            </div>
+                            <div class="memory-card">
+                                <i class="fas fa-hands-helping"></i>
+                                <h4>互相支持的时刻</h4>
+                                <div class="typing-text" id="memory2">
+                                    <!-- 内容将通过JS动态生成 -->
+                                </div>
+                            </div>
+                            <div class="memory-card">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h4>成长的见证</h4>
+                                <div class="typing-text" id="memory3">
+                                    <!-- 内容将通过JS动态生成 -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 打字控制按钮 -->
+                        <div class="typing-controls">
+                            <button id="start-typing" class="typing-btn">
+                                <i class="fas fa-play"></i> 开始回忆动画
+                            </button>
+                            <button id="skip-typing" class="typing-btn skip-btn">
+                                <i class="fas fa-forward"></i> 跳过动画
+                            </button>
+                            <button id="repeat-typing" class="typing-btn repeat-btn">
+                                <i class="fas fa-redo"></i> 重新播放
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 生日祝福特效 -->
+        <section id="effects" class="section effects-section">
+            <h2><i class="fas fa-magic"></i> 生日特效</h2>
+            <div class="effects-controls">
+                <button id="fireworks-btn" class="effect-btn">
+                    <i class="fas fa-fire"></i> <span id="firework-text">发射超级烟花</span> <span id="firework-level">✨</span>
+                </button>
+                <button id="confetti-btn" class="effect-btn">
+                    <i class="fas fa-birthday-cake"></i> 抛洒五彩纸屑
+                </button>
+                <button id="hearts-btn" class="effect-btn">
+                    <i class="fas fa-heart"></i> 发射爱心
+                </button>
+            </div>
+            <div class="canvas-container">
+                <canvas id="effect-canvas"></canvas>
+            </div>
+            <div class="instructions">
+                <p><i class="fas fa-mouse-pointer"></i> 点击上方按钮触发特效，也可以在画布上点击/拖动</p>
+                <p><i class="fas fa-keyboard"></i> 快捷键：按 <kbd>F</kbd> 键快速发射烟花！</p>
+            </div>
+        </section>
+
+        <!-- 生日许愿 -->
+        <section id="wishes" class="section wishes-section">
+            <h2><i class="fas fa-star"></i> 为姐姐许愿</h2>
+            <div class="wish-box">
+                <p>点击星星许下生日愿望：</p>
+                <div class="wish-stars">
+                    <div class="wish-star" data-wish="健康快乐">
+                        <i class="fas fa-star"></i>
+                        <span>健康快乐</span>
+                    </div>
+                    <div class="wish-star" data-wish="学业顺利">
+                        <i class="fas fa-star"></i>
+                        <span>学业顺利</span>
+                    </div>
+                    <div class="wish-star" data-wish="天天开心">
+                        <i class="fas fa-star"></i>
+                        <span>天天开心</span>
+                    </div>
+                    <div class="wish-star" data-wish="心想事成">
+                        <i class="fas fa-star"></i>
+                        <span>心想事成</span>
+                    </div>
+                    <div class="wish-star" data-wish="永远美丽">
+                        <i class="fas fa-star"></i>
+                        <span>永远美丽</span>
+                    </div>
+                </div>
+                <div id="wish-result" class="wish-result hidden">
+                    <p>已为姐姐许愿：<span id="selected-wish"></span></p>
+                    <p class="wish-note">✨ 愿望一定会实现的！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 结尾签名 -->
+        <section id="signature" class="section signature-section">
+            <div class="signature-box">
+                <h2><i class="fas fa-code"></i> 弟弟的代码签名</h2>
+                <div class="code-signature">
+                    <pre><code>
+// ====================================
+// 项目：给姐姐的生日礼物
+// 开发者：你的弟弟伏钊先
+// 专业：网络空间安全
+// 日期：2025年12月
+// ====================================
+
+function sendBirthdayWishes() {
+    const sister = "世界上最棒的姐姐";
+    const love = "无限";
+    const gratitude = "永远感恩";
+    
+    const message = `
+        姐姐，谢谢你一直以来的照顾！
+        愿你的新一岁：
+        1. 健康平安 ⚕️
+        2. 笑口常开 😊
+        3. 心想事成 🎯
+        4. 越来越美 💖
+        
+        无论未来如何，弟弟永远支持你！
+    `;
+    
+    return {
+        recipient: sister,
+        loveLevel: love,
+        message: message,
+        signature: "弟弟 ❤️"
+    };
+}
+
+// 执行祝福函数
+const birthdayWish = sendBirthdayWishes();
+console.log("生日祝福已发送：", birthdayWish);
+                    </code></pre>
+                </div>
+                <div class="personal-message">
+                    <p>这个网页是用HTML、CSS和JavaScript编写的，</p>
+                    <p>代码其实挺长的，我部分用了ai，但我想跟姐姐说的话在里面，他包含了弟弟最真挚的祝福。</p>
+                    <p>未来我学会了更多技术，会为你制作更棒的作品！</p>
+                </div>
+                <div class="closing">
+                    <h3>永远支持你的弟弟</h3>
+                    <p>西华师大计算机学院网络空间安全专业 大一</p>
+                    <p class="date">🎁 礼物创建时间：2025年12月</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 导航按钮 -->
+        <div class="navigation">
+            <button class="nav-btn" data-target="opening"><i class="fas fa-home"></i></button>
+            <button class="nav-btn" data-target="main-message"><i class="fas fa-heart"></i></button>
+            <button class="nav-btn" data-target="effects"><i class="fas fa-magic"></i></button>
+            <button class="nav-btn" data-target="wishes"><i class="fas fa-star"></i></button>
+            <button class="nav-btn" data-target="signature"><i class="fas fa-code"></i></button>
+        </div>
+    </div>
+
+    <!-- 烟花特效容器 -->
+    <div id="fireworks-container"></div>
+
+    <!-- 脚本引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
